@@ -6,12 +6,14 @@ Group MEAN stack project
 
 For our third project, we decided to build a MEAN stack web application called "CRAVE".
 
-"CRAVE'S" target audience are those users,  who are in need of food desperately, after a night out.  The app plots relevant restaurants, onto a users given route/map, depending on how emotional they are feeling:
+"CRAVE'S" target audience are for people who are in need of food desperately, after a night out or a late night at work. The app plots relevant restaurants onto a users given route/map.
 
-- Hammered (kebab)
-- Hungover (cafes)
-- Hardworking (chinese)
-- Hangry (fast food)
+Extra filtering options are also availble to the user. They're able to filter the results based on their current emotional state:
+
+- Hammered
+- Hungover
+- Hardworking
+- Hangry
 
 ##### The app utilises the following technologies:
 
@@ -34,7 +36,7 @@ For our third project, we decided to build a MEAN stack web application called "
 - Snazzy Maps for Google Map styling.
 - Balmsmiq for wireframing.
 
-##### The app is produced with a mobile first experience in mind, so please [visit](https://app-crave.herokuapp.com/) if you're craving for food.
+##### The app is produced with a mobile first experience in mind, so please [visit](https://crave-london.herokuapp.com/) if you're craving for food.
 
 ---
 
@@ -79,7 +81,9 @@ For our third project, we decided to build a MEAN stack web application called "
 ---
 
 ###### Installation Instructions
-- You'll need run your yarn package manager, to run the necessary dependencies which are already listed in the package.json.
+- Install dependencies 'yarn install'
+- Start local MongoDB server in Node.js 'mongod'
+- Launch the app locally with 'yarn start:client' & 'yarn start:server'
 
 ---
 
