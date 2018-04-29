@@ -4,39 +4,50 @@ Group MEAN stack project
 
 # GA WDI-32 Project 3 - Crave Angular Web Application
 
-For our third project, we decided to build a MEAN stack web application called "CRAVE".
+For my third project, we were required to build a MEAN stack web application in a group of 3. After brainstorming within the team and rolling out options that were not plausible, we came up with the idea to build 'CRAVE'.
 
-"CRAVE'S" target audience are for people who are in need of food desperately, after a night out or a late night at work. The app plots relevant restaurants onto a users given route/map.
+"CRAVE'S" target audience are for people who are in need of food desperately after a night out on the town or a late night at work. The app plots relevant restaurants/food places that are currently open onto the users given map route home.
 
-Extra filtering options are also availble to the user. They're able to filter the results based on their current emotional state:
+Extra filtering options are also available to the user. They're able to filter the results based on their current emotional state:
 
 - Hammered
 - Hungover
 - Hardworking
 - Hangry
 
+#### My Responsibilities:
+
+As part of the team I was mainly responsible for the following:
+
+- Building out the backend shell including the router, environment, User model and secure route.
+- Geolocate functionality in order to pick up the users current location.
+- Loading modal for when the app is locating the user.
+- Allowing the user to save their home and work address and select these as end points of their journey.
+- Testing utilising Mocha and Chai - specifically Registration route.
+
+(I also carried out other bug fixing and design aspects)
+
 ##### The app utilises the following technologies:
 
 - MONGO to store our user database/credentials.
 - Express to enable a fully RESTful register, login and profile edit/update process
 - AngularJS to allow us to use an MVC framework and updating the state without redirecting the user/reloading the page.
-- Node.js - to allow us to run our app on a local server.
-- Google Maps API - calling these main services Directions Render, Directions Service, Places Service.
+- Node.js - as our server-side programming framework.
+- Google Maps API - calling these main services: Directions Render, Directions Service, Places Service.
 - JSONWebToken, BCrypt and Satellizer to securely store user passwords.
 - UIRouter to allow for state changes.
-- Mocha - the test runner, Chai - for assertion libary, nyc - test coverage reporter.
+- Mocha - the test runner, Chai - for assertion library, nyc - test coverage reporter.
 - Angular-messages to run flash messages.
-- Bluebird for Promises.
+- Bluebird as our promise library.
 - Bulma for styling.
-- SASS for nested styling.     
-- Body-Parser - allows you to parse form data.
+- SCSS for nested styling.     
+- Body-Parser - for form data.
 - GitHub to manage version control.
 - Trello to create, submit and manage user stories and manage workflow using Agile methodology.
 - Heroku to host our final web application.
 - Snazzy Maps for Google Map styling.
-- Balmsmiq for wireframing.
 
-##### The app is produced with a mobile first experience in mind, so please [visit](https://crave-london.herokuapp.com/) if you're craving for food.
+##### The app is produced with a mobile first experience in mind, so please [visit](https://crave-london.herokuapp.com/) if you're craving food on your route home.
 
 ---
 
@@ -50,15 +61,15 @@ Extra filtering options are also availble to the user. They're able to filter th
 </p>
 
 
-###### The user can then choose their start point via Google geolocator, or via autocomplete, if this functionality fails.  And then choose their destination, emotional state, followed by travel mode.
+###### The user can then choose their starting point via Google geolocator, or via autocomplete, if this functionality fails.  And then choose their destination, emotional state, followed by travel mode.
 
 <p align="center"><img src="https://i.imgur.com/J1GC2uG.png" height="400"></p>
 
-###### We then utilise Directions Service and Directions Render, to create a polyline from the users origin/destination route and Places Service to plot, the filtered pins/places.  These are sorted by whether the restaurants are open at the time of search.
+###### We then utilise Directions Service and Directions Render, to create a polyline from the users origin/destination route and Places Service to plot the filtered pins/places. These are sorted by whether the restaurants are open at the time of search.
 
 ###### The user can also interact with each pin, by clicking and an info window appears, with relevant data.
 
-###### We then call Directions Render again, to display turn by turn instructions, which are user can also interact with and see where they are on their chosen route.
+###### We then call Directions Render again, to display turn by turn instructions, which our user can also interact with and see where they are on their chosen route.
 
 
 <p align="center">
@@ -80,6 +91,8 @@ Extra filtering options are also availble to the user. They're able to filter th
 
 ---
 
+
+
 ###### Installation Instructions
 - Install dependencies 'yarn install'
 - Start local MongoDB server in Node.js 'mongod'
@@ -87,15 +100,7 @@ Extra filtering options are also availble to the user. They're able to filter th
 
 ---
 
-
 ###### Enhancements:
-Further enhancements we would make, would be to plot the users location on the map, for a better user experience.  And also build a 'clear button', into the application, allowing the user to restart their search, if they make a mistake.
+Further enhancements we would make would be to plot the users location on the map, for a better user experience.  And also build a 'clear button', into the application, allowing the user to restart their search, if they make a mistake.
 
-We also didn't have time to explore, plugging in additional apis, such as Uber to present the user with cab fares.
-
-'Could's we didn't have time to develop:
-- Saving a user's route history.
-- Following the users movements using GPS functionality.
-
-'Would's we didn't have time to develop:
-- Follow mates on Crave.
+We also didn't have time to explore plugging in additional APIs, such as Uber to present the user with cab fares etc.
