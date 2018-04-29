@@ -48,6 +48,7 @@
             <input class="location-input" google-auto-complete type="text" placeholder="Enter a destination location" ng-model="pagesHome.destination">
           </div>
           <p ng-show="main.isAuthenticated()">OR</p>
+          <!-- user can selected home or work and it will pass this in to the function -->
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('home')">Home</button>
           <button class="bottom-nav-button" ng-show="main.isAuthenticated()" ng-click="pagesHome.pullUserHomeOrWork('work')">Work</button>
 

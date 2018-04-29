@@ -50,56 +50,80 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
 
   vm.setFoodType = setFoodType;
 
-  //CURRENT LOCATION FUNCTION
+  //Abi's Function
+  //----------CURRENT LOCATION FUNCTION------------//
+
+  //setting all of the messaging on the page as an empty string initially
   vm.userCurrentAddress = '';
   vm.unsuccessfulLocateMessage = '';
   vm.successfulLocateMessage = '';
-  //This function gets the users current position and sets it as the origin
+
   function userCurrentPosition(){
+    //run the nav function whilst this function is running - the below closes the nav
     openNav();
+    //run the modal
     vm.loading = true;
-    //The below function locates your current position in to lat and lng variables.
+    //setting options for the geolacte function, it will time out in 10 seconds if it hasnt located you
+    //maximumAge of 0 means that we will not use a cached postition and will use the actual current location of the device
     var ops = {
       timeout: 10000,
       maximumAge: 0
     };
+
+    //The below function locates your current position in to lat and lng variables.
     navigator.geolocation.getCurrentPosition(pos => {
-      console.log(pos);
+    //saved the users current lat and lon in to variables
       const userCurrentLat = pos.coords.latitude;
       const userCurrentLng = pos.coords.longitude;
-      //The below changes them in to an object ready for convering them in to an address string
+      //The below changes them in to an object ready for converting them in to an address string
       const latLng = {lat: userCurrentLat, lng: userCurrentLng};
-      //The below uses the latLng object and finds the formatted_address
+      //The below uses the latLng object and finds the formatted_address which is what we need for the field and google maps
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latLng}, function(results, status) {
+        //when the geocodar runs it will send back "ok" if it's located your formatted_address from the lat and lng
         if (status === 'OK') {
+          //if successful located then display 'weve located you'
           vm.successfulLocateMessage = 'We\'ve located you!';
+          //...and open the nav again
           openNav();
+
           if (results[0]) {
+            //if we've received a result then set the first index as the users current address
             vm.userCurrentAddress = results[0].formatted_address;
+            //also set this as the origin for google maps
             vm.origin = results[0].formatted_address;
+            //set the modal to false and therefore hide it
             vm.loading = false;
+            //apply this to scope which is neccessary for angular
             $scope.$apply();
+            //log the users current location, i used this for testing
             console.log('This is your current location:' + vm.userCurrentAddress);
           } else {
+            //else log no results found
             console.log('No results found');
           }
+          //if the status was now 'OK' log the geolocate error
         } else {
           console.log('Geocoder failed due to: ' + status);
         }
       });
+      //the below is if there was an error,
     }, err => {
+      //if the error was that it timed out, via our options that we previously set in opps which was 10 seconds
       if (err.TIMEOUT) {
+        //hide the loading modal
         vm.loading = false;
+        //open the nav
         openNav();
+        //log that it's timeout
         console.log('TIMEOUT');
+        //set the message to be displayed to indicate that we havent located the user
         vm.unsuccessfulLocateMessage = 'Sorry, we couldn\'t locate you this time.';
+        //apply this to scope so the message is displayed. needed with angular because it hasnt picked up a change
         $scope.$apply();
       }
+      //passed in the options as the third argument
     }, ops);
-
-    //here I want to save the lat and lng as seperate variales.
-    //then I want to save them as the value in the form with an ng-m
   }
   vm.userCurrentPosition = userCurrentPosition;
 
@@ -124,7 +148,7 @@ function PagesHomeCtrl($scope, $auth, User, $timeout) {
   vm.openNav = openNav;
 
 
-  //This function pulls the current users home address from database when the home button is clicked
+  //Abi's Function - This function pulls the current users home address from database when the home button is clicked
   function pullUserHomeOrWork(place){
     vm.userPlace = '';
     if (place === 'home'){
