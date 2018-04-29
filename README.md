@@ -101,6 +101,6 @@ As part of the team I was mainly responsible for the following:
 ---
 
 ###### Enhancements:
-Further enhancements we would make would be to plot the users location on the map, for a better user experience.  And also build a 'clear button', into the application, allowing the user to restart their search, if they make a mistake.
-
-We also didn't have time to explore plugging in additional APIs, such as Uber to present the user with cab fares etc.
+- Functionality that the user can be tracked whilst walking the router
+- Saving favourite food places for future
+- Including a taxi API so the user could book one if needed.
