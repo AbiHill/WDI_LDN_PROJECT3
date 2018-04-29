@@ -143,18 +143,6 @@ function googleMap() {
               });
 
 
-
-              // results.map(place => {
-              //   console.log(place.vicinity);
-              //   const contentString = place.name;
-              //   return new google.maps.InfoWindow({
-              //     title: place.name,
-              //     content: contentString
-              //   });  //google maps marker
-              //   // infoWindows.push(infowindow);
-              // });
-
-
             });
           }); //end of this function
 
